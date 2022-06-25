@@ -1,3 +1,4 @@
+import 'package:consumindo_api_com_flutter/home/http/http_bindings.dart';
 import 'package:consumindo_api_com_flutter/home/http/http_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: '/',
             page: () => HomePage(),
+            binding: HttpBindings(),
             children: [GetPage(name: '/http', page: () => HttpPage())])
       ],
     );
