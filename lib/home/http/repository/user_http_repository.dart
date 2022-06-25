@@ -10,12 +10,8 @@ class UserHttpRepository implements IUserRepository {
     final response =
         await http.get('https://sujeitoprogramador.com/r-api/?api=filmes');
     final List<Map<String, dynamic>> responseMap = jsonDecode(response.body);
-    responseMap.map<UserModel>((resp) {
-      final model = UserModel(
-          id: resp['id'] as String,
-          nome: resp['nome'] as String,
-          sinopse: resp['sinopse'] as String,
-          foto: resp['foto'] as String);
-    }).toList();
+    return responseMap
+        .map<UserModel>((resp) => UserModel.fromMap(resp))
+        .toList();
   }
 }
