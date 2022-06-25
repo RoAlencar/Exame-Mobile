@@ -9,7 +9,7 @@ class UserHttpRepository implements IUserRepository {
   Future<List<UserModel>> findAllUsers() async {
     final response =
         await http.get('https://sujeitoprogramador.com/r-api/?api=filmes');
-    final List<Map<String, dynamic>> responseMap = jsonDecode(response.body);
+    final List<dynamic> responseMap = jsonDecode(response.body);
     return responseMap
         .map<UserModel>((resp) => UserModel.fromMap(resp))
         .toList();

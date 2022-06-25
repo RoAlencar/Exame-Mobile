@@ -19,7 +19,7 @@ class HttpController extends GetxController with StateMixin {
       final dados = await _httpRepository.findAllUsers();
       change(dados, status: RxStatus.success());
     } catch (e) {
-      change([], status: RxStatus.error());
+      change([], status: RxStatus.error('Erro na busca!'));
     }
   }
 }
